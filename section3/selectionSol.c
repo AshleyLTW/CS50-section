@@ -1,21 +1,14 @@
-#include <cs50.h>
-#include <stdio.h>
-
-int main(void)
+for (int i = 0; i < n - 1; i++)
 {
-    // Get input
-    int n = get_int("How many values? ");
-    int values[n];
-    for (int i = 0; i < n; i++)
+    int min_index = i;
+    for (int j = i + 1; j < n; j++)
     {
-        values[i] = get_int("Value %i: ", i);
+        if (values[j] < values[min_index])
+        {
+            min_index = j;
+        }
     }
-
-    // TODO: sort numbers
-
-    // Print sorted values
-    for (int i = 0; i < n; i++)
-    {
-        printf("%i\n", values[i]);
-    }
+    int temp = values[i];
+    values[i] = values[min_index];
+    values[min_index] = temp;
 }
